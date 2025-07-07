@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Generate QR Codes instantly with our free online QR Code Generator. Fully responsive, fast, and optimized for SEO." />
+  <title>QR Code Generator - Free & Fast</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <style>
+    body {
+      background: #f9fafb;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-start p-4">
+  <!-- Header -->
+  <header class="text-center my-6">
+    <h1 class="text-3xl font-bold text-gray-800">QR Code Generator</h1>
+    <p class="text-gray-600">Instantly generate custom QR codes for any text or URL</p>
+  </header>
+
+  <!-- AdSense Top Banner -->
+  <div class="my-4 w-full flex justify-center">
+    <!-- Replace 'YOUR-AD-UNIT-ID' with actual Ad Unit ID -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-YOUR-AD-UNIT-ID"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Main Tool Container -->
+  <main class="w-full max-w-xl bg-white rounded-lg shadow-lg p-6">
+    <label for="qrText" class="block mb-2 text-lg font-medium text-gray-700">Enter Text or URL:</label>
+    <input type="text" id="qrText" class="w-full border border-gray-300 rounded-lg p-2 mb-4" placeholder="https://example.com" />
+
+    <label for="quality" class="block mb-2 text-lg font-medium text-gray-700">Compression Level:</label>
+    <select id="quality" class="w-full border border-gray-300 rounded-lg p-2 mb-4">
+      <option value="L">Low (L)</option>
+      <option value="M">Medium (M)</option>
+      <option value="Q">Quality (Q)</option>
+      <option value="H">High (H)</option>
+    </select>
+
+    <button onclick="generateQR()" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Generate QR Code</button>
+
+    <div id="qrcode" class="mt-6 flex justify-center"></div>
+  </main>
+
+  <!-- AdSense Bottom Banner -->
+  <div class="my-6 w-full flex justify-center">
+    <!-- Replace 'YOUR-AD-UNIT-ID' with actual Ad Unit ID -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-YOUR-AD-UNIT-ID"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 mt-8 text-sm">
+    <p>&copy; 2025 QR Code Generator. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function generateQR() {
+      const text = document.getElementById("qrText").value;
+      const quality = document.getElementById("quality").value;
+      const qrcodeContainer = document.getElementById("qrcode");
+      qrcodeContainer.innerHTML = ""; // Clear previous
+
+      if (!text.trim()) {
+        alert("Please enter some text or a URL.");
+        return;
+      }
+
+      QRCode.toCanvas(document.createElement('canvas'), text, {
+        errorCorrectionLevel: quality,
+        margin: 2,
+        scale: 8
+      }, function (err, canvas) {
+        if (err) console.error(err);
+        else qrcodeContainer.appendChild(canvas);
+      });
+    }
+
+    // Load Google AdSense
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</body>
+
+</html>
+
